@@ -3,9 +3,8 @@ program taskF;
 uses
   CRT;
 var
-  a,b,c,d,sum:integer;
+  a,b,c,d,mult,sum:integer;
   txt:text;
-  mult:real;
 begin
   assign(txt, 'input.txt');
   reset(txt);
@@ -13,8 +12,16 @@ begin
   close(txt);
   assign(txt,'output.txt');
   rewrite(txt);
+  mult:= 1;
   sum:=0;
-  mult:=a*b*c*d;
+  if a < 0 then
+    mult:= -mult;
+  if b < 0 then
+    mult:= -mult;
+  if c < 0 then
+    mult:= -mult;
+  if d < 0 then
+    mult:= -mult;
   if mult < 0 then
     begin
       if a mod 2 = 0 then
@@ -50,4 +57,4 @@ begin
           writeln(txt, d);
       end;
   close(txt);
-end.
+end.                                               
