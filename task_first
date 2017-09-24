@@ -1,0 +1,42 @@
+program task_first;
+{$mode objfpc}{$H+}
+uses
+  CRT;
+var
+  temp, i, j: integer;
+  a, b: real;
+  x, y: array[1..4] of integer;
+  txt: text;
+begin
+  assign(txt, 'input.txt');
+  reset(txt);
+  for i:= 1 to 4 do
+      readln(txt, x[i], y[i]);
+  close(txt);
+  assign(txt,'output.txt');
+  rewrite(txt);
+  for i:= 1 to 4 do
+      for j:= 1 to 3 do
+        begin
+          begin
+            if x[j] > x[j + 1] then
+               begin
+                 temp:= x[j];
+                 x[j]:= x[j + 1];
+                 x[j + 1]:= temp;
+                 temp:= y[j];
+                 y[j]:= y[j + 1];
+                 y[j + 1]:= temp;
+               end;
+          end;
+        end;
+  if (x[1] = x[2]) then
+     begin
+       a:= x[3] - x[1];
+       b:= y[2] - y[1];
+     end;
+  a:= sqrt(sqr(y[2] - y[1]) + sqr(x[2] - x[1]));
+  b:= sqrt(sqr(y[3] - y[1]) + sqr(x[3] - x[1]));
+  write(txt, abs(a * b));
+  close(txt);
+end.                                                 
