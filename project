@@ -1,0 +1,34 @@
+import random
+prizes = ['sup is semi zalup', 'chlen na lob', 'mazerati']
+f = open('input.txt', 'r')
+score = {}
+winners = []
+for elem in f:
+    a = elem.split()
+    score[a[0]] = a[1]
+temp = []
+
+for key, val in score.items():
+    if int(val) >= 40:
+        temp = temp + [key]
+winners = [random.choice(temp)] + winners
+del score[winners[0]]
+temp = []
+
+for key, val in score.items():
+    if int(val) >= 25:
+        temp = temp + [key]
+winners = [random.choice(temp)] + winners
+del score[winners[0]]
+temp = []
+
+for key, val in score.items():
+    if int(val) >= 10:
+        temp = temp + [key]
+winners = [random.choice(temp)] + winners
+del score[winners[0]]     
+
+print('3 Mesto - %s, kotoriy poluchaet %s' % (winners[0], prizes[0]))
+print('2 Mesto - %s, kotoriy poluchaet %s' % (winners[1], prizes[1]))
+print('1 Mesto - %s, kotoriy poluchaet %s' % (winners[2], prizes[2]))
+f.close()
