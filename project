@@ -9,21 +9,21 @@ for elem in f:
 temp = []
 
 for key, val in score.items():
-    if int(val) >= 40:
+    if int(val) >= 45:
         temp = temp + [key]
 winners = [random.choice(temp)] + winners
 del score[winners[0]]
 temp = []
 
 for key, val in score.items():
-    if int(val) >= 25:
+    if int(val) >= 30:
         temp = temp + [key]
 winners = [random.choice(temp)] + winners
 del score[winners[0]]
 temp = []
 
 for key, val in score.items():
-    if int(val) >= 10:
+    if int(val) >= 15:
         temp = temp + [key]
 winners = [random.choice(temp)] + winners
 del score[winners[0]]     
