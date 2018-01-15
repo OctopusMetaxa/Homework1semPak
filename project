@@ -1,5 +1,5 @@
 import random
-prizes = ['Lada Vesta', 'iPhone 6s 64gb', 'PlayStation 4 Slim']
+prizes = ['iPhone 6s 64gb', 'PlayStation 4 Slim', 'Bugatti Chiron',]
 f = open('input.txt', 'r')
 score = {}
 winners = []
